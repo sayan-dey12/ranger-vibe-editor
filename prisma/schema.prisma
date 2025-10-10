@@ -20,6 +20,7 @@ model User {
   image     String?
   accounts  Account[]
   role      UserRole  @default(USER)
+  myPlayground Playground[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
@@ -42,4 +43,25 @@ model Account {
 
   @@unique([provider, providerAccountId])
   @@map("accounts")
+}
+
+
+enum Templates {
+  REACT
+  NEXTJS
+  VUE
+  ANGULAR
+  HONO
+  EXPRESS
+}
+
+model Playground {
+  id String @id @default(cuid()) @map("_id")
+  title String
+  description String?
+  template Templates @default(NEXTJS)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId String
+  user User @relation(fields: [userId] , references: [id], onDelete: Cascade)
 }
