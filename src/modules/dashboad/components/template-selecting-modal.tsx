@@ -79,7 +79,7 @@ const templates: TemplateOption[] = [
     name: "Express",
     description:
       "Fast, unopinionated, minimalist web framework for Node.js to build APIs and web applications",
-    icon: "/expressjs-icon.svg",
+    icon: "/Express.svg",
     color: "#000000",
     popularity: 4,
     tags: ["Node.js", "API", "Backend"],
