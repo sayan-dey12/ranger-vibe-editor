@@ -1,4 +1,4 @@
-import { getAllPlaygroundForUser } from "@/modules/dashboad/actions";
+import { getAllPlaygroundForUser,deletePlayground,editPlayground,duplicatePlaground } from "@/modules/dashboad/actions";
 import AddNewButton from "@/modules/dashboad/components/add-new";
 import AddRepo from "@/modules/dashboad/components/add-repo";
 import EmptyState from "@/modules/dashboad/components/empty-state";
@@ -20,9 +20,9 @@ const Page = async () => {
         ) : (
           <ProjectTable
             projects={playgrounds || []}
-            onDeleteProject={() => {}}
-            onUpdateProject={() => {}}
-            onDuplicateProject={() => {}}
+            onDeleteProject={deletePlayground}
+            onUpdateProject={editPlayground}
+            onDuplicateProject={duplicatePlaground}
           />
         )}
       </div>
